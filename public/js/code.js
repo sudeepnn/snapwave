@@ -109,7 +109,7 @@ async function signin() {
     const password = document.getElementById('signinPassword').value;
     console.log(username,password)
     try {
-        const response = await fetch('http://localhost:3000/signin', {
+        const response = await fetch('/signin', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -150,7 +150,7 @@ async function signup() {
     const password = document.getElementById('signupPassword').value;
 
     try {
-        const response = await fetch('http://localhost:3000/signup', {
+        const response = await fetch('/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ async function sendResetEmail() {
     const resetEmail = document.getElementById('resetEmail').value;
 
     try {
-        const response = await fetch('http://localhost:3000/reset-password-request', {
+        const response = await fetch('/reset-password-request', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

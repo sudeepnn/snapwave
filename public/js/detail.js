@@ -27,7 +27,7 @@ async function submitForm() {
     const formData = new FormData(form);
 
     try {
-        const response = await fetch('http://localhost:3000/details', {
+        const response = await fetch('/details', {
             method: 'POST',
             body: formData,
         });
