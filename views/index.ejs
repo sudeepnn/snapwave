@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snapwave</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Include SweetAlert CSS file -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Include SweetAlert JavaScript file -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    
+
+    <!-- signin or login modal -->
+    <div id="signin-modal" class="modal">
+        <div class="modal-content">
+            <img class="close" onclick="closeSignInModal()" src="images/cross.png" />
+            <div class="both">
+                <div class="logincon">
+                    <h1>Log In</h1>
+                    <div class="con">
+                        <form id="signinForm" class="formcon" autocomplete="off">
+                            <div class="input-container">
+                                <i class="fas fa-envelope"></i>
+                                <input class="userinput" type="text" id="signinUsername" name="signinUsername"
+                                    placeholder="Email" required>
+                            </div>
+                            <div class="input-container">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="signinPassword" name="signinPassword" placeholder="Password"
+                                    required>
+                                <i class="eye-icon fa fa-eye-slash" id="eyeIcon"
+                                    onclick="togglePasswordVisibility1()"></i>
+                            </div>
+                            <div class="forgot">
+                                <p onclick="closeSignInModal(),openPasswordResetModal()" class="forgotten_pass">Forgot
+                                    Password ?</p>
+                            </div>
+
+                            <button type="button" onclick="signin()">Sign In</button>
+                            <p onclick="closeSignInModal(),openSignupModal()" class="newuser">New user ? <a
+                                    href="#">Sign up</a></p>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="signup_alter">
+                    <h2>New Here ?</h2>
+                    <p>Sign up and discover more in Snapwave</p>
+                    <button onclick="closeSignInModal(),openSignupModal()" id="sign_up_foralter">Sign Up</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- signup modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <img class="close" onclick="closeSignupModal()" src="images/cross.png" />
+            <div class="both">
+                <div class="logincon">
+                    <h1>Sign Up</h1>
+                    <div class="con">
+                        <form id="signupForm" class="formcon" autocomplete="off">
+                            <div class="input-container">
+                                <i class="fa-solid fa-user"></i>
+                                <input class="userinput" type="text" id="signupUsername" name="signupUsername"
+                                    placeholder="Username" required>
+                            </div>
+                            <div class="input-container">
+                                <i class="fas fa-envelope"></i>
+                                <input class="userinput" type="email" id="signupEmail" name="signupEmail"
+                                    placeholder="Email" required autocomplete="off">
+                            </div>
+                            <div class="input-container">
+                                <i class="fa-solid fa-lock"></i>
+                                <input type="password" id="signupPassword" name="signupPassword" placeholder="Password"
+                                    required>
+                                <i class="eye-icon fa fa-eye-slash" id="eyeIcon"
+                                    onclick="togglePasswordVisibility()"></i>
+                            </div>
+                            <button type="button" onclick="signup()">Sign Up</button>
+                            <p class="existinguser">Already have an account? <a href="#"
+                                    onclick="closeSignupModal(),openSignInModal()">Sign in</a></p>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="signup_alter">
+                    <h2>Already have an account ?</h2>
+                    <p>Sign in and discover more in Snapwave</p>
+                    <button onclick="closeSignupModal(),openSignInModal()" id="sign_up_foralter">Sign in</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- passwordrest modal -->
+    <div id="passwordResetModal" class="modal_reset">
+        <div class="modal-content_reset">
+
+            <img class="close" onclick="closePasswordResetModal()" src="images/cross.png" />
+            <h2>Password Reset</h2>
+            <p>Enter your email address to receive a password reset link.</p>
+            <form id="passwordResetForm" class="formcon" autocomplete="off">
+                <div class="input-container">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="resetEmail" name="resetEmail" placeholder="Your email" required>
+                </div>
+                <button type="button" onclick="sendResetEmail()">Send Email</button>
+            </form>
+        </div>
+    </div>
+
+
+    <nav>
+        <div>
+            <img src="images/logo.png" alt="Logo">
+        </div>
+
+        <div class="nav_but">
+            <button onclick="openSignInModal()" id="sign-in">Log In</button>
+            <button onclick="openSignupModal()" id="sign-up">Sign Up</button>
+            <img class="doc" src="images/menu.png" alt="">
+        </div>
+        <div class="drop_down">
+            <img class="doc1" src="images/cross.png" alt="" srcset="">
+            <div class="btns">
+                <button onclick="openSignInModal()" id="sign-in">Log In</button>
+                <button onclick="openSignupModal()" id="sign-up">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+    <hr>
+    <div class="content">
+        <img src="images/main1.jpg" alt="" srcset="">
+        <div class="heading">
+            <h1>Welcome to Snapwave</h1>
+            <p>Explore the world with Snapwave</p>
+        </div>
+    </div>
+
+</body>
+<script src="/js/code.js"></script>
+
+</html>

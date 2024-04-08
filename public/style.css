@@ -1,0 +1,453 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+nav {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(240, 248, 255, 0);
+  }
+
+  nav img {
+    width: 230px; /* Adjust the width as needed */
+    height: 70px;
+    border-radius: 10px;
+  }
+
+  .profile_con p{
+    cursor: pointer;
+  }
+
+  #sign-in {
+    background-color: #000000; /* Green, adjust color as needed */
+    color: white;
+    padding: 10px 15px;
+    width: 130px;
+    
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    
+  }
+  #sign-up {
+    width: 130px;
+    background-color: #80808038; /* Green, adjust color as needed */
+    color: rgb(0, 0, 0);
+    padding: 10px 15px;
+    margin-left: 10px;
+    font-size: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  .doc{
+    height: 30px;
+    width: 30px;
+  }
+  
+  .doc, .drop_down{
+    display: none;
+  }
+  .content{
+    width: 100%;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+}
+.content img{
+    margin-top: 20px;
+    width: 80%;
+    height: 80vh;
+    object-fit: cover;
+    border-radius: 20px;
+   
+    text-align: center;
+}
+.content .heading{
+    font-size: 40px;
+    position: absolute;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    
+
+}
+
+.doc1 {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.content .heading p{
+    font-weight: 200;
+}
+
+/* ... your existing CSS ... */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 5s ease;
+}
+
+.modal-content {
+  background: linear-gradient(to right, #fefefe 50%, #1A5CE5 50%);
+  text-align: center;
+  border-radius: 20px;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #80808038;
+  width: 60%;
+  height: 50%;
+  border-style: none;
+  
+}
+
+.modal.visible {
+  opacity: 1;
+}
+.modal_reset {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 5s ease;
+}
+
+.modal-content_reset {
+  background: #fefefe;
+  text-align: center;
+  border-radius: 20px;
+  margin: 10% auto;
+  padding: 20px;
+  font-size: 20px;
+  border: 1px solid #80808038;
+  width: 40%;
+  border-style: none;
+  
+}
+
+.modal_reset.visible {
+  opacity: 1;
+}
+.close {
+  color: #000000;
+  float: right;
+  cursor: pointer;
+ height: 20px;
+ width: 20px;
+}
+.formcon{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  
+}
+.formcon input{
+  height: 40px;
+  border-style: none;
+  border: none;
+  width: 90%;
+  font-size: 20px;
+  background-color: #b3b2b200;
+  padding-left: 15px;
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0) inset !important; /* Adjust the color as needed */
+  transition: background-color 5000s ease-in-out 0s; /* Add a long transition to override autofill styles */
+}
+#passwordResetModal p{
+  margin-top: 20px;
+}
+/* Additional styles to reset appearance */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+.formcon input:hover{
+  border-style: none;
+  border-color: #1a5ee500
+}
+.forgot{
+  width: 70%;
+  text-align: left;
+  font-size: 15px;
+}
+.forgotten_pass{
+  color: blue;
+  cursor: pointer;
+}
+.input-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 40px;
+  border-radius: 10px;
+  width: 70%;
+  font-size: 25px;
+  background-color: #b3b2b257;
+  padding-left: 10px;
+  border: 1px solid black;
+}
+
+.input-container i{
+  height: 30px;
+  width: 20px;
+  color: #00000092;
+}
+
+#eyeIcon{
+  position: relative;
+  right: 20px;
+}
+
+
+.formcon button{
+  font-size: 20px;
+  width: 70%;
+  background-color: #1A5CE5;
+  height: 40px;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.newuser, .existinguser{
+  display: none;
+}
+.both{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  
+}
+.logincon{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.con{
+  width: 100%;
+  
+}
+
+.signup_alter{
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  color: #fefefe;
+  
+}
+.signup_alter h2{
+  font-weight: 700;
+  font-size: 30px;
+}
+.signup_alter p{
+  font-weight: 200;
+  font-size: 15px;
+}
+#sign_up_foralter {
+  width: 40%;
+  background-color: #ffffff; 
+  color: rgb(0, 0, 0);
+  padding: 10px 15px;
+  margin-left: 10px;
+  font-size: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+@media (max-width:1000px){
+    nav{
+        height: 60px;
+        padding: 10px 15px;
+    }
+    nav img {
+        width: 150px;
+        height: 50px;
+        
+      }
+    .nav_but #sign-in{
+        display: none;
+    }
+    .nav_but #sign-up{
+        display: none;
+    }
+    .doc{
+        display: block;
+      }
+    .show{
+        display: block;
+        
+    }
+      .drop_down{
+        position: absolute;
+        right: 0px;
+        top: 0.5px;
+        height: 94.5%;
+        border: 1px solid black;
+        z-index: 1;
+        backdrop-filter: blur(20px);
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.105);
+        transition: display 4s ease-in-out;
+        /* transition: width 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+      }
+      .btns{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+    #sign-in, #sign-up{ 
+        background: none;
+        border: none;
+        padding: 5px;
+        margin: 0;
+        cursor: pointer;
+        color: inherit;
+        font: inherit;
+        text-align: center; /* Adjust as needed */
+        color: rgb(0, 0, 0);
+        border-radius: none;
+        font-size: 20px;
+    }
+   
+    .content img{
+    margin-top: 20px;
+    width: 80%;
+    height: 80vh;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.content .heading{
+    font-size: 20px;
+    
+}
+.formcon{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  
+}
+.formcon input{
+  height: 40px;
+  border-radius: 10px;
+  width: 90%;
+  font-size: 20px;
+  background-color: #b3b2b200;
+  padding-left: 10px;
+  outline: none;
+}
+.formcon input:hover{
+  border-style: none;
+  border-color: #1a5ee500
+}
+.input-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 25px;
+  background-color: #b3b2b257;
+  
+  border: 1px solid black;
+}
+.input-container i{
+  height: 30px;
+  width: 20px;
+  width: 10%;
+  color: #1A5CE5;
+}
+.forgot{
+  width: 90%;
+  text-align: left;
+  font-size: 15px;
+}
+.forgotten_pass{
+  color: blue;
+  cursor: pointer;
+}
+.formcon button{
+  font-size: 20px;
+  width: 90%;
+  background-color: #1A5CE5;
+  height: 40px;
+  color: white;
+  border-radius: 10px;
+}
+
+.logincon{
+  width: 100%;
+}
+.signup_alter{
+  display: none;
+}
+.newuser{
+  display: block;
+}
+.modal-content {
+  background: none;
+  background-color: #fefefe;
+  height: fit-content;
+  width: fit-content;
+}
+.modal-content_reset {
+  width: 80%;
+}
+.existinguser{
+  display: block;
+}
+#eyeIcon{
+  position: relative;
+  right: 15px;
+}
+}

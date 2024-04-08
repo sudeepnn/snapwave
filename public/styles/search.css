@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.search_con{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #E3E3E3;
+    padding: 10px;
+    border-radius: 20px;
+    gap: 5px;
+}
+.con{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+.searchbarcon{
+    width: 80%;
+}
+.search_con input{
+    width: 80%;
+    padding-left: 10px;
+    height: 25px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: #E3E3E3;
+}
+.doc1 {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+.hid{
+    display: none;
+}
+.profile_img{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+#userListContainer{
+    position: absolute;
+    z-index: 1;
+    
+    
+    width: fit-content;
+    border-radius:0 0 20px 20px;
+    background-color: rgb(255, 255, 255);
+}
+.search_each_user{
+    cursor: pointer;
+    display: flex;
+    margin: 10px;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    gap: 15px;
+    width: fit-content;
+    font-size: 25px;
+}
+
+
+.doc{
+    height: 30px;
+    width: 30px;
+}
+.bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .bottom-navbar a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .bottom-navbar a:hover {
+    color: #ccc;
+  }
+  .profile_con1{
+    padding-right: 5px;
+      font-size: 15px;
+  }
+  .profile1{
+      cursor: pointer;
+      background-color: #aaa;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+  }
+  .profile1 img{
+    width: 100%;  
+    height: auto;  
+   
+    object-fit: cover; /
+}

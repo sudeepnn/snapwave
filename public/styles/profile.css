@@ -1,0 +1,320 @@
+.top_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    gap: 20px;
+    
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.profile {
+    cursor: pointer;
+    background-color: #aaa;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    display: flex; /* Add this for centering */
+    justify-content: center; /* Add this for centering */
+    align-items: center; 
+}
+
+.profile img {
+    width: 100%; /* Adjusts image dimensions */
+    height: auto;
+
+    object-fit: cover;
+}
+
+.user_details{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 10px;
+}
+.follow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.following{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.following p{
+    font-size: 13px;
+}
+.following h4{
+    font-size: 20px;
+    width:fit-content;
+}
+.pro_user p{
+    margin: 5px;
+}
+.pro_user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#username {
+    font-size: 15px;
+}
+
+#age #bio #dob {
+    margin-top: 15px;
+    font-weight: 100;
+    font-size: 15px;
+    font-style: normal;
+}
+
+video {
+    flex: 1;
+    max-width: 100%;
+
+}
+
+hr {
+    margin-top: 10px;
+    background-color: #aaa;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+
+
+#posts {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    flex-direction: row;
+    width: 70%;
+
+}
+/* CSS style for the delete button */
+.delete-button {
+    position: absolute;
+    bottom: 28%;
+    right: 2%; 
+    background-color: #aaaaaa00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1; /* Ensure the delete button appears on top of the video */
+}
+/* CSS style for the delete button */
+.video-container p {
+    position: absolute;
+    bottom: 5%;
+    font-size: 15px;
+    font-weight: 100;
+     color: white;
+    background-color: #aaaaaa00;
+    padding: 5px 10px;
+     
+    z-index: 1; /* Ensure the delete button appears on top of the video */
+}
+.video-container .likebtn{
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    bottom: 18%;
+    right: 2%;
+    font-size: 15px;
+    border: none;
+    font-weight: 100;
+     color: red;
+    background-color: #aaaaaa00;
+   
+     display: flex;
+     justify-content: center;
+     cursor: pointer;
+     align-items: center;
+    z-index: 1; /* Ensure the delete button appears on top of the video */
+}
+.delete-button img{
+    height: 25px;
+    width: 25px;
+}
+.like_img{
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    
+}
+
+/* CSS style for the video container */
+.video-container {
+   display: inline;
+   position: relative;
+   width: 30vh;
+   
+    
+}
+
+
+video::-webkit-media-controls-fullscreen-button {
+    display: none !important;
+}
+
+/* Hide download button */
+video::-webkit-media-controls-enclosure {
+    overflow: hidden !important;
+}
+
+video::-webkit-media-controls-enclosure .download-button {
+    display: none !important;
+}
+nav .profile_con{
+    display: none;
+}
+.uploadbtn{
+    display: none;
+}
+.doc{
+    height: 25px;
+    width: 25px;
+}
+.bottom-navbar{
+    display: none;
+}
+
+
+@media (max-width:1000px) {
+    body{
+        margin-bottom: 100px;
+    }
+    nav .profile_con{
+        display: none;
+    }
+    .uploadbtn{
+        display: none;
+    }
+    .bottom-navbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+      }
+      
+      .bottom-navbar a {
+        color: white;
+        text-decoration: none;
+      }
+      
+      .bottom-navbar a:hover {
+        color: #ccc;
+      }
+    .profile_con{
+      padding-right: 5px;
+        font-size: 15px;
+    }
+    .profile{
+        cursor: pointer;
+        background-color: #aaa;
+        height: 70px;
+        width: 70px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+    .profile_con1{
+        padding-right: 5px;
+          font-size: 15px;
+      }
+      .profile1{
+          cursor: pointer;
+          background-color: #aaa;
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          overflow: hidden;
+      }
+      .profile1 img{
+        width: 100%;  
+        height: auto;  
+       
+        object-fit: cover; /
+    }
+    video {
+        max-width: 100%;
+        
+    }
+
+    #posts {
+        width: 100%;
+    }
+    .video-container {
+        width: 20vh;         
+     }
+}
+
+#loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+    z-index: 9999; /* Ensure the loader is above other content */
+}
+.hid{
+    display: none;
+}
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    border: 5px solid #ffffff;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 

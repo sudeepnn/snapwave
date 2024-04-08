@@ -1,0 +1,275 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+.detail_form {
+    margin: 20px;
+    box-shadow: 11px 10px 18px 0px rgba(0, 0, 0, 0.7);
+
+    border-radius: 15px;
+
+}
+
+.detail_form h2 {
+    padding: 15px;
+    color: white;
+    background-color: #1A5CE5;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.detail_form label {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.parent_form h1 {
+    font-weight: 700;
+
+    margin: 20px;
+
+
+}
+
+.parent_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.detail_form {
+    margin: 20px;
+    padding-bottom: 15px;
+}
+
+.input_form_con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.input_form_con label {
+    width: 18%;
+    text-align: left;
+    padding: 0;
+    margin-right: 20px;
+}
+
+.input_form_con button {
+    font-size: 20px;
+    width: 200px;
+    background-color: #1A5CE5;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.input_container {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 35px;
+    border-radius: 5px;
+    width: 40%;
+    font-size: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid black;
+}
+
+.input_container input {
+    outline: none;
+    border: none;
+    width: 100%;
+    font-size: 20px;
+    padding: 0px;
+}
+
+#userDetailsForm {
+    width: 60%;
+}
+
+#selectedImage {
+    border-radius: 50%;
+    max-width: 100px;
+    max-height: 100px;
+    display: none;
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+#defaultImage {
+    border-radius: 50%;
+    max-width: 100px;
+    max-height: 100px;
+    width: 100px;
+    height: 100px;
+    margin-left: 50px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.custom-file-input input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.custom-file-input {
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #1A5CE5;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    overflow: hidden;
+}
+
+.input_form_con_textarea {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input_container_textarea {
+    width: 20%;
+}
+
+#bio {
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+@media (max-width:1000px) {
+    #userDetailsForm {
+        width: 100%;
+    }
+
+    body {
+        font-size: 15px;
+    }
+
+    .input_form_con {
+        font-size: 15px;
+    }
+
+    #selectedImage {
+        border-radius: 50%;
+        max-width: 80px;
+        max-height: 80px;
+        width: 80px;
+        height: 80px;
+        display: none;
+        margin-left: 10px;
+    }
+
+    #defaultImage {
+        border-radius: 50%;
+        max-width: 80px;
+        max-height: 80px;
+        width: 80px;
+        height: 80px;
+        margin-left: 10px;
+    }
+
+    .input_form_con {
+
+        text-align: left;
+        padding: 0;
+        margin-right: 10px;
+    }
+
+    .input_container label {
+        width: 20%;
+    }
+
+    .input_form_con .input_container {
+        width: 80%;
+    }
+
+    .detail_form {
+        margin: 15px;
+        padding-bottom: 15px;
+
+    }
+
+    .detail_form h2 {
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .detail_form label {
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .input_container_textarea {
+        width: 80%;
+    }
+
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 29, 29, 0.8);
+    /* Semi-transparent white background */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+    /* Ensure it appears above other elements */
+}
+
+
+
+.loading-overlay.show {
+    display: flex;
+}

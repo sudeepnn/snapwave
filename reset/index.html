@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SanpWave password reset</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Include SweetAlert CSS file -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Include SweetAlert JavaScript file -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            height: 100vh;
+            width: 100vw;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+
+        }
+
+        .container {
+            width: 60%;
+            display: flex;
+
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-evenly;
+            box-shadow: 10px 11px 48px 0px rgba(0, 0, 0, 0.74);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        h1 {
+            padding: 10px;
+        }
+
+        p {
+            font-weight: 200;
+            padding: 10px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 40%;
+            height: 25px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-size: 20px;
+            background-color: #b3b2b257;
+            padding-left: 10px;
+            border: 1px solid black;
+
+        }
+
+        input {
+            height: 20px;
+            border-style: none;
+            border: none;
+            width: 80%;
+            font-size: 15px;
+            background-color: #b3b2b200;
+            padding-left: 5px;
+            padding-right: 5px;
+            outline: none;
+        }
+
+        .input-container i {
+            height: 20px;
+            width: 10%;
+            color: #00000092;
+        }
+
+        #eyeIcon,
+        #eyeIcon1 {
+            cursor: pointer;
+        }
+
+        #sign_up_foralter {
+            width: 40%;
+            background-color: #1A5CE5;
+            color: rgb(255, 255, 255);
+            height: 30px;
+            margin-top: 20px;
+            font-size: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        @media (max-width:1000px) {
+            .container {
+                width: 85%;
+            }
+
+            .input-container {
+                padding-right: 5px;
+                width: 85%;
+            }
+
+            .input-container i {
+                width: 10%;
+
+            }
+
+            #sign_up_foralter {
+                width: 80%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>SanpWave</h1>
+    <div class="container">
+        <h1>Reset account Password</h1>
+        <p>Enter your new Password</p>
+        <div class="input-container">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="signupPassword" name="signupPassword" placeholder="Password" required>
+            <i class="eye-icon fa fa-eye-slash" id="eyeIcon" onclick="togglePasswordVisibility()"></i>
+        </div>
+        <div class="input-container">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" id="signupPassword1" name="signupPassword" placeholder="Confirm Password" required>
+            <i class="eye-icon fa fa-eye-slash" id="eyeIcon1" onclick="togglePasswordVisibility1()"></i>
+        </div>
+        <button onclick="resetpassword()" id="sign_up_foralter">Reset</button>
+    </div>
+    </div>
+
+</body>
+<script>
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('signupPassword');
+        const eyeIcon = document.getElementById('eyeIcon');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        }
+    }
+    function togglePasswordVisibility1() {
+        const passwordInput = document.getElementById('signupPassword1');
+        const eyeIcon = document.getElementById('eyeIcon1');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        }
+    }
+
+    function resetpassword() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const resetToken = urlParams.get('token');
+        const newPassword = document.getElementById('signupPassword').value
+        const reenteredPassword = document.getElementById('signupPassword1').value
+
+        if (newPassword !== reenteredPassword) {
+            console.error('Passwords do not match');
+            Swal.fire({
+                icon: 'error',
+                title: 'Password reset failed',
+                text: 'Password dose not match! ',
+            });
+        } else {
+            // Send the request using fetch
+            fetch('http://localhost:3000/reset-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    resetToken,
+                    newPassword,
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        // Handle server error
+                        console.error('Server Error:', data.error);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Server Error',
+                            text: data.error,
+                        });
+                    } else if (data.message) {
+                        console.log(data);
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success!',
+                            text: data.message,
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error occured',
+                        text: error,
+                    });
+                });
+        }
+
+    }
+
+
+</script>
+
+</html>

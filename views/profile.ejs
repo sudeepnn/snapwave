@@ -1,0 +1,87 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/profile.css">
+    <title>Snapwave</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Include SweetAlert CSS file -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Include SweetAlert JavaScript file -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <!-- Pop up -->
+    <!-- <nav>
+        <div>
+            <img src="images/logo.png" alt="Logo">
+        </div>
+        <div class="search_con">
+            <input type="text" placeholder="search">
+            <img class="doc1" src="images/search.png" alt="" srcset="">
+        </div>
+        <div class="profile_con">
+            <div class="profile">
+                <img src="<%= user.profilePhoto %>" alt="" srcset="">
+            </div>
+            <p><%= user.username %></p>
+        </div>
+    </nav> -->
+    <div class="top_container">
+        <div class="pro_user">
+            <div class="profile">
+                <img src="<%= user.profilePhoto %>" alt="" srcset="">
+            </div>
+            <p id="username"><%= user.username %></p>
+        </div>
+        <div class="user_details">
+            <div class="follow">
+                <div class="following">
+                    <h4><%= user.following %></h4>
+                    <p>Following</p>
+                </div>
+                <div class="following">
+                    <h4><%= user.follower %></h4>
+                    <p>Followers</p>
+                </div>
+            </div>
+            <!-- <p id="age"></p>
+            <p id="dob"></p> -->
+            <p id="bio"></p>
+        </div>
+    </div>
+    <hr>
+    <div id="loader-container">
+        <span class="loader"></span>
+    </div>
+   <div class="container">
+    <div id="posts"></div>
+   </div> 
+
+   <div class="bottom-navbar">
+    <a  href="dashboard"><img class="doc" src="images/dashboard.png" alt=""></a>
+    <a href="searchbar"><img class="doc" src="images/search.png" alt=""></a>
+    <a href="newpost"><img class="doc" src="images/upload.png" alt=""></a>
+    <a href="logout"><img class="doc" src="images/signout.png" alt=""></a>
+    
+  </div>
+</body>
+<script src="/js/profile.js"></script>
+
+</html>

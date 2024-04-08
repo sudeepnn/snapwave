@@ -1,0 +1,108 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="/styles/dash.css"> -->
+    <link rel="stylesheet" href="/styles/newpost.css">
+    <title>Snapwave</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Include SweetAlert CSS file -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Include SweetAlert JavaScript file -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+   
+    <nav>
+        <div>
+            <img src="images/logo.png" alt="Logo">
+        </div>
+
+        <div class="profile_con">
+            <div class="profile">
+                <img src="<%= user.profilePhoto %>" alt="" srcset="">
+            </div>
+            <p id="username">
+                <%= user.username %>
+            </p>
+        </div>
+    </nav>
+    <hr>
+    <h2>Upload Video</h2>
+   <div class="mid">
+    <div class="upload-container">
+       
+        <div class="left-section hid" id="leftside">
+            <video controls id="videoPreview"></video>
+        </div>
+        <div class="right-section" >
+            
+            
+            <!-- <input type="file" id="fileInput"> -->
+            <div class="upload_con">
+                <div class="input_form_con">
+                    <label for="fileInput">Choose a Video:</label>
+                    <div class="custom-file-input">
+                        <span>Choose</span>
+                        <input type="file" id="fileInput" name="fileInput" accept="video/mp4" required>
+                    </div>
+                </div>
+
+                <div class="input_form_con">
+                    <label for="Caption">Caption:</label>
+                    <div class="input_container_textarea">
+                        <textarea id="captionInput" name="Caption" style="padding: 5px;" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            
+            
+        </div>
+    </div>
+   </div>
+    <div class="input_form_con">
+        <button type="button" id="uploadBtn">Upload</button>
+    </div>
+
+
+
+
+
+
+    <div class="bottom-navbar">
+        <a  href="dashboard"><img class="doc" src="images/dashboard.png" alt=""></a>
+        <a href="searchbar"><img class="doc" src="images/search.png" alt=""></a>
+        <a href="newpost"><img class="doc" src="images/upload.png" alt=""></a>
+        <div class="profile_con1">
+            <div class="profile1">
+                <img src="<%= user.profilePhoto %>" alt="" srcset="">
+            </div>
+            
+        </div>
+      </div>
+
+    <div id="loader-container" class="hid">
+        <span class="loader"></span>
+    </div>
+
+</body>
+<script src="/js/newpost.js"></script>
+
+</html>

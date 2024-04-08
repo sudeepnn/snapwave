@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snapwave</title>
+    <link rel="stylesheet" href="/styles/detail.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- Include SweetAlert CSS file -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Include SweetAlert JavaScript file -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <img src="images/logo.png" alt="Logo">
+        </div>
+    </nav>
+    <hr>
+    <div id="loadingOverlay" class="loading-overlay">
+        <span class="loader"></span>
+    </div>
+
+    <div class="parent_form">
+        <h1>Let's Set-up your Account</h1>
+        <form id="userDetailsForm" enctype="multipart/form-data">
+            <div class="detail_form">
+                <h2>Profile Photo</h2>
+                <div class="input_form_con">
+                    <label for="profilePhoto">Profile Photo:</label>
+                    <div class="custom-file-input">
+                        <span>Choose</span>
+                        <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*"
+                            onchange="displaySelectedImage(this)" required>
+                    </div>
+                    <img id="selectedImage" src="#" alt="Selected Image">
+                    <img id="defaultImage" src="/images/user.png" alt="Default Image">
+                </div>
+
+            </div>
+            <div class="detail_form">
+                <h2>Personal Information :</h2>
+
+                <div class="input_form_con">
+                    <label for="Email">Email:</label>
+                    <div class="input_container">
+                        <input type="text" id="username" name="email" value="<%=user.email%>" readonly>
+                    </div>
+                </div>
+                <div class="input_form_con">
+                    <label for="dateOfBirth">Date of Birth:</label>
+                    <div class="input_container">
+                        <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                    </div>
+                </div>
+                <div class="input_form_con">
+                    <label for="age">Age:</label>
+                    <div class="input_container">
+                        <input type="number" id="age" name="age" required>
+                    </div>
+                </div>
+                <div class="input_form_con">
+                    <label for="bio">Bio:</label>
+                    <div class="input_container_textarea ">
+                        <textarea id="bio" name="bio" rows="4" required></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="input_form_con">
+                <button type="button" onclick="submitForm()">Upload</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="/js/detail.js"></script>
+
+</html>
