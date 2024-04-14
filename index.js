@@ -265,7 +265,7 @@ function sendResetEmail(email, resetToken) {
         subject: 'Password Reset',
         html: `
             <p>Click the following button to reset your password:</p>
-            <a href="http://localhost:3000/reset-password?token=${resetToken}">
+            <a href="/reset-password?token=${resetToken}">
                 <button style="padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">Reset Password</button>
             </a>
         `,
