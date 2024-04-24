@@ -265,7 +265,7 @@ function sendResetEmail(email, resetToken) {
         subject: 'Password Reset',
         html: `
             <p>Click the following button to reset your password:</p>
-            <a href="/reset-password?token=${resetToken}">
+            <a href="https://snapwave.onrender.com/reset-password?token=${resetToken}">
                 <button style="padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">Reset Password</button>
             </a>
         `,
@@ -656,15 +656,11 @@ app.get('user_searched/:username', async (req, res) => {
 //search userss
 app.get('/search/:searchQuery', async (req, res) => {
     try {
-        const searchQuery = req.params.searchQuery; // Get the search query from the URL parameter
-        // Construct a regular expression to match usernames starting with the search query (case-insensitive)
+        const searchQuery = req.params.searchQuery; 
         const regex = new RegExp(`^${searchQuery}`, 'i');
-
-        // Perform a search query on the User collection
         const searchResults = await User.find({ username: regex })
-            .select('username profilePhoto'); // Select only the username field
-
-        res.json(searchResults); // Send the search results as JSON
+            .select('username profilePhoto'); 
+        res.json(searchResults); 
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
