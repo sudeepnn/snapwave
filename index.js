@@ -312,9 +312,8 @@ app.post('/reset-password-request', async (req, res) => {
 //password reset
 
 app.get('/reset-password', async (req, res) => {
-    console.log("skdhfbdsh")
-    res.send("sfdf")
-    // res.sendFile(__dirname + "\\reset\\index.html")
+       
+    res.sendFile(__dirname + "/reset/index.html")
 })
 
 app.post('/reset-password', async (req, res) => {
